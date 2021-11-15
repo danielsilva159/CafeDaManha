@@ -7,7 +7,7 @@ import br.com.breakfast.model.Collaborator;
 
 public interface CollaboratorRepository extends JpaRepository<Collaborator, Long> {
 	
-	@Query("Select cpf FROM Collaborator WHERE cpf = ?1")
+	@Query("select c from Collaborator c where c.cpf = ?1")
 	Collaborator consultationCollaborator(String cpf);
 
 }

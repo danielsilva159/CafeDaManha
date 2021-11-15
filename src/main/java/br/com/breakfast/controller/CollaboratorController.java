@@ -39,12 +39,11 @@ public class CollaboratorController {
 	@ResponseStatus(HttpStatus.CREATED)
     public String  includeCollaborator(@Validated @RequestBody Collaborator c) {
 		Collaborator co = collaborator.consultationCollaborator(c.getCpf());
-		System.out.println(co);
 		if(co == null) {
 		 collaborator.save(c);
 		 return "Colaborador salvo com sucesso";
 		}else {
-			return "Esse CPF já está cadastrado na base de dados com o usuário" + c.getName();
+			return "Esse CPF já está cadastrado na base de dados com o usuário " + co.getName();
 			
 		}
     }
